@@ -2,6 +2,7 @@ package com.micromata.webengineering.demo.post;
 
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -20,14 +21,26 @@ public class PostService {
     public List<Post> getPosts() {
         return posts;
     }
+    public int postId = 0;
 
 
     /**
      * Add a new post.
      *
-     * @param post the post.
+     * @param title add a new post with this title.
      */
-    public void addPost(Post post) {
+    public void addPost(String title) {
+        Post post = new Post(postId++, title, LocalDateTime.now().toString());
         posts.add(post);
+    }
+
+    public Post findPost(int id) {
+        return posts.stream()
+                .filter(post -> post.getId() == id)
+                .findFirst().orElse(null);
+    }
+
+    public void deletePost(int id) {
+        posts.remove(findPost(id));
     }
 }

@@ -1,11 +1,8 @@
 package com.micromata.webengineering.demo.post;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -21,9 +18,18 @@ public class PostController {
         return postService.getPosts();
     }
 
-    @RequestMapping(value = "/post/add")
+    @RequestMapping(value = "/post/{postId}", method = RequestMethod.GET)
+    public Post getSinglePost(@PathVariable("postId") int postId) {
+        return postService.findPost(postId);
+    }
+
+    @RequestMapping(value = "/post/add", method = RequestMethod.POST)
     public void addPost(@RequestParam("title") String title) {
-        Post post = new Post(title, LocalDateTime.now().toString());
-        postService.addPost(post);
+        postService.addPost(title);
+    }
+
+    @RequestMapping(value = "/post/delete/{postId}", method = RequestMethod.DELETE)
+    public void deletePost(@PathVariable("postId") int postId) {
+        postService.deletePost(postId);
     }
 }
