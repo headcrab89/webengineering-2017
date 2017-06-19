@@ -1,6 +1,6 @@
 *.pptx
 *.iml
-.idea/
+#.idea/
 target
 
 # H2 database files.
