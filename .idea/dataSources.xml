@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="webengineering-2017" uuid="2e3bfc69-dc7a-4849-b320-ec839954cbc5">
+      <driver-ref>h2.unified</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.h2.Driver</jdbc-driver>
+      <jdbc-url>jdbc:h2:$PROJECT_DIR$</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="test" uuid="de94c05b-99e8-4234-a0f0-43435c0fc2de">
+      <driver-ref>h2.unified</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.h2.Driver</jdbc-driver>
+      <jdbc-url>jdbc:h2:$PROJECT_DIR$/test</jdbc-url>
+    </data-source>
+  </component>
+</project>
